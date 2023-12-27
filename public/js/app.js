@@ -1,5 +1,7 @@
 
-fetch('../package.json')
+const uri = '../data.json'
+
+fetch(uri)
     .then(function (response) {
         return response.json();
     })
@@ -16,30 +18,26 @@ fetch('../package.json')
 let table = document.getElementById('tableAll');
 
 let json = [{
-        "name": "All",
-        "propiety1": "value1",
-        "propiety2": "value2",
-        "propiety3": "value3"
+        "title": "Estudiar JS",
+        "priority": "alta",
+        "isDone": "false"
     },
     {
-        "name": "All",
-        "propiety1": "value4",
-        "propiety2": "value5",
-        "propiety3": "value6"
+        "title": "Estudiar CSS",
+        "priority": "alta",
+        "isDone": "true"
 
     },
     {
-        "name": "All",
-        "propiety1": "value7",
-        "propiety2": "value8",
-        "propiety3": "value9"
+        "title": "Estudiar OPP",
+        "priority": "media",
+        "isDone": "false"
 
     },
     {
-        "name": "All",
-        "propiety1": "value10",
-        "propiety2": "value11",
-        "propiety3": "value12"
+        "title": "Estudiar IA",
+        "priority": "baja",
+        "isDone": "false"
 
     },
 
@@ -50,15 +48,12 @@ for (let i = 0; i < json.length; i++) {
     let row = table.insertRow();
 
     let nameCell = row.insertCell();
-    nameCell.appendChild(document.createTextNode(json[i].name))
+    nameCell.appendChild(document.createTextNode(json[i].title))
 
     let propiety1Cell = row.insertCell();
-    propiety1Cell.appendChild(document.createTextNode(json[i].propiety1))
+    propiety1Cell.appendChild(document.createTextNode(json[i].priority))
 
     let propiety2Cell = row.insertCell();
-    propiety2Cell.appendChild(document.createTextNode(json[i].propiety2))
-
-    let propiety3Cell = row.insertCell();
-    propiety3Cell.appendChild(document.createTextNode(json[i].propiety3))
+    propiety2Cell.appendChild(document.createTextNode(json[i].isDone))
 
 }
